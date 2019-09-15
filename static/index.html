@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h1>Chess Quotes API</h1>
+
+    <p>A JSON API for random chess quotes by various players and authors</p>
+    <code>
+    {<br>
+            "name": "<span id="name"></span>",<br>
+            "quote": "<span id="quote"></span>"<br>
+    }<br>
+    </code>
+    <script>
+        let url = "http://localhost:8000/api/";
+        fetch(url)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (jsonObj) {
+                //console.log(JSON.stringify(jsonObj));
+                document.getElementById("name").innerHTML = jsonObj.name;
+                document.getElementById("quote").innerHTML = jsonObj.quote;
+                //document.getElementById("quote").innerHTML = "Quote: " + jsonObj.quote + "<br>" + "by " + jsonObj.name;
+            });
+    </script>
+
+
+</body>
+
+</html>
